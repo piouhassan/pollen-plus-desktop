@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pollen Plus | Se Connecter</title>
+
+    <!-- Bootstrap -->
+
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/vendors/iconfonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.addons.css">
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="/vendors/bootstrap-notify/animate.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+            <div class="row flex-grow">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center" style="background: #fff">
+                    <div class="auth-form-transparent text-left p-3">
+                        <div class="brand-logo">
+                            <h2 style="margin-bottom: 30px;text-align: center;">POLLEN PLUS</h2>
+                        </div>
+
+
+                        <form class="login" action="" method="post" style="background: #fff">
+                            {{ csrf_input() }}
+                            <div class="form-group">
+                                <label for="exampleInputEmail">Utilisateur</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend bg-transparent">
+                                          <span class="input-group-text bg-transparent border-right-0">
+                                            <i class="fa fa-user text-primary"></i>
+                                          </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail"placeholder="Nom d'utilisateur" name="username" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword">Mot de passe</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend bg-transparent">
+                                      <span class="input-group-text bg-transparent border-right-0">
+                                        <i class="fa fa-lock text-primary"></i>
+                                      </span>
+                                    </div>
+                                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Mot de Passe" name="password">
+                                </div>
+                            </div>
+
+                            <div class="my-3">
+                                <button class="btn btn-block btn-info  font-weight-medium auth-form-btn LogSub" type="submit">Se Connecter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 login-half-bg d-flex flex-row">
+                    <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2019  All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/vendors/bootstrap-notify/bootstrap-notify.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Flat Pickr -->
+<script src="/vendors/flatpickr/js/flatpickr.js"></script>
+<script src="/vendors/flatpickr/js/flatpickr-fr.js"></script>
+<!-- Select2 -->
+<script src="/vendors/select2/js/select2.min.js"></script>
+<script src="/vendors/jquery-smartWizard/jquery.smartWizard.js"></script>
+<script src="/vendors/js/vendor.bundle.base.js"></script>
+<script src="/vendors/js/vendor.bundle.addons.js"></script>
+<script src="/build/js/custom.min.js"></script>
+<script src="/build/js/ajax.js"></script>
+<script>
+    flatpickr('.datepicker', {
+        enableTime: true,
+        allowInput: true,
+        altFormat: 'j F Y, H:i',
+        dateFormat: 'Y-m-d H:i:S',
+        locale: "fr"
+    })
+
+    $(document).ready(function(){
+        $('.select2').select2()
+    })
+    {% if flash('success') %}
+    $.notifyDefaults({
+        type: 'success',
+        allow_dismiss: false
+    });
+    $.notify('{{ flash('success') }}');
+    {% endif %}
+    {% if flash('error') %}
+    $.notifyDefaults({
+        type: 'danger',
+        allow_dismiss: false
+    });
+    $.notify('{{ flash('error') }}');
+    {% endif %}
+
+
+</script>
+</body>
+</html>

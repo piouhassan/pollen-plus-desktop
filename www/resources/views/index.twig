@@ -1,0 +1,77 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+    <!-- top tiles -->
+    <div class="">
+        <div class="row top_tiles">
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats bg-green">
+                    <div class="icon"><i class="fa fa-user" style="color: #fff;"></i></div>
+                    <div class="count">{{ users }}</div>
+                    <h3 style="color: #fff;">Membres</h3>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                <div class="tile-stats bg-blue">
+                    <div class="icon"><i class="fa fa-briefcase" style="color: #fff;"></i></div>
+                    <div class="count">{{ projects }}</div>
+                    <h3 style="color: #fff;">Les Projets</h3>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats bg-orange">
+                    <div class="icon"><i class="fa fa-group" style="color: #fff;"></i></div>
+                    <div class="count">{{ customers }}</div>
+                    <h3 style="color: #fff;">Clients</h3>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats  bg-red">
+                    <div class="icon"><i class="fa fa-check-square-o" style="color: #fff;"></i></div>
+                    <div class="count">{{ invoice }}</div>
+                    <h3 style="color: #fff;">Factures</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="x_panel" >
+                    <div class="x_title">
+                        <h2>Statistiques des projets</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                            <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="x_panel" >
+                    <div class="x_title">
+                        <h2>Autres Statistiques</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <img src="{{ asset('/images/cres-logo.png') }}" style="height: 150px; width: 150px;position: relative;left: 50%; transform: translateX(-50%); margin-bottom: 50px;" alt="">
+                        <hr>
+                        <h4 style="text-align: center;">Community of Restaurant</h4>
+                        <hr>
+                      <p>Telechargement de Cres  <b class="pull-right">0</b></p>
+                        <hr>
+                        <p>Commande via  Web  <b class="pull-right">0</b></p>
+                        <hr>
+                        <p>Commande via Mobile   <b class="pull-right">0</b></p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

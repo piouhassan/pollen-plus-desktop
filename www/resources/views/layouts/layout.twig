@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Pollen Plus | {% block title %}Administration{% endblock %}</title>
+    <!-- Bootstrap -->
+    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Pickr -->
+    <link href="/vendors/flatpickr/css/flatpickr.css" rel="stylesheet">
+    <!-- Flat Pickr -->
+    <link href="/vendors/select2/css/select2.css" rel="stylesheet">
+    <link href="/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/vendors/sweetalert/sweetalert2.min.css">
+    <!-- Custom Theme Style -->
+    <link href="/build/css/custom.min.css" rel="stylesheet">
+    <link href="/vendors/bootstrap-notify/animate.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-code"></i>  <span>Pollen Plus</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        {% if auth.avatar %}
+                            <img src="/images/thumb_{{ auth.avatar }}" alt="" class="img-circle profile_img">
+                        {% endif %}
+                        {% if auth.avatar == NULL %}
+                            <img src="/images/default/avatar.jpg" alt=""  class="img-circle profile_img" >
+                        {% endif  %}
+                    </div>
+                    <div class="profile_info">
+                        <span>Bienvenue,</span>
+                        <h2>{{ auth.name }}</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+                <br/>
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu footer_fixed">
+                    <div class="menu_section">
+                        <h3>General</h3>
+                        <ul class="nav side-menu">
+                            <li>
+                                <a href="/dashboard"><i class="fa fa-home"></i> Dashboard </a>
+                            </li>
+                            <li><a><i class="fa fa-group"></i> Clients <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/customers/create">Ajouter un Client</a></li>
+                                    <li><a href="/customers">Liste des Clients</a></li>
+                                </ul>
+                            </li>
+							 <li><a><i class="fa fa-pencil"></i> Facture <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/invoices/create">Ajouter une Facture</a></li>
+                                    <li><a href="/invoices">Liste de Factures</a></li>
+                                </ul>
+                            </li>
+                            {% if auth.roles.role == 'admin' %}
+                            <li><a><i class="fa fa-briefcase"></i> Projets <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/projects/create">Ajouter un Projet</a></li>
+                                    <li><a href="/projects">Liste des Projets</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-user"></i> Membres <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/users/create">Ajouter un Membres</a></li>
+                                    <li><a href="/users">Liste de Membres</a></li>
+                                </ul>
+                            </li>
+                                <li><a href="/recovery/data"><i class="fa fa-recycle"></i> Recovery and delete</a></li>
+
+                                <li><a href="/notification/push"><i class="fa fa-bell"></i> Push Notification</a></li>
+
+                                <li><a href="/domain/whois"><i class="fa fa-internet-explorer"></i> Nom de domaine</a></li>
+
+                                <li><a href="/database/dump/list"><i class="fa fa-database"></i> Base de Donnée</a></li>
+
+                            {% endif %}
+                           
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+            </div>
+        </div>
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                {% if auth.avatar %}
+                                    <img src="/images/thumb_{{ auth.avatar }}" >
+                                {% endif %}
+                                {% if auth.avatar == NULL %}
+                                    <img src="/images/default/avatar.jpg">
+                                {% endif  %}{{ auth.username }}
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="/users/profile/{{ auth.id }}"><i class="fa fa-user pull-right"></i> Mon Profil</a></li>
+                                <li><a href="/users/logout"><i class="fa fa-power-off pull-right"></i>Se deconnecter</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            {% block content %}{% endblock %}
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer class="footer_fixed">
+            <div class="pull-right footer_fixed">
+               Pollen plus Admin panel
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/vendors/bootstrap-notify/bootstrap-notify.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Flat Pickr -->
+<script src="/vendors/flatpickr/js/flatpickr.js"></script>
+<script src="/vendors/flatpickr/js/flatpickr-fr.js"></script>
+<!-- Select2 -->
+<script src="/vendors/select2/js/select2.min.js"></script>
+<script src="/vendors/jquery-smartWizard/jquery.smartWizard.js"></script>
+
+<script src="/vendors/Chart.js/dist/Chart.min.js"></script>
+
+
+
+<script src="/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="/vendors/jszip/dist/jszip.min.js"></script>
+<script src="/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+
+
+<script src="/vendors/sweetalert/sweetalert2.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/build/js/custom.js"></script>
+<script src="/build/js/sweet-custom.js"></script>
+<script>
+    flatpickr('.datepicker', {
+        enableTime: true,
+        allowInput: true,
+        altFormat: 'j F Y, H:i',
+        dateFormat: 'Y-m-d H:i:S',
+        locale: "fr"
+    })
+
+    $(document).ready(function(){
+        $('.select2').select2()
+    })
+    {% if flash('success') %}
+        $.notifyDefaults({
+            type: 'success',
+            allow_dismiss: false
+        });
+        $.notify('{{ flash('success') }}');
+    {% endif %}
+    {% if flash('error') %}
+        $.notifyDefaults({
+            type: 'danger',
+            allow_dismiss: false
+        });
+        $.notify('{{ flash('error') }}');
+    {% endif %}
+    {% if flash('warning') %}
+        $.notifyDefaults({
+            type: 'warning',
+            allow_dismiss: false
+        });
+        $.notify('{{ flash('warning') }}');
+    {% endif %}
+
+    if ($('#lineChart').length ){
+
+        var ctx = document.getElementById("lineChart");
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet","Aout","Septembre","Octobre","Novembre","Decembre"],
+                datasets: [{
+                    label: "Projets",
+                    backgroundColor: 'transparent',
+                    borderColor: "rgba(25, 185, 154, 0.7)",
+                    pointBorderColor: "rgba(25, 185, 154, 0.7)",
+                    pointBackgroundColor: "rgba(25, 185, 154, 0.7)",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(22,220,220,1)",
+                    pointBorderWidth: 1,
+                    data: [{{ data }}]
+                }]
+            },
+        });
+
+    }
+
+</script>
+</body>
+</html>

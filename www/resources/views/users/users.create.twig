@@ -1,0 +1,79 @@
+{% extends 'layouts/layout.twig' %}
+{% block title %}
+    Les Membres
+{% endblock %}
+{% block content %}
+    <div class="">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Ajouter un nouveau utilisateur</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br/>
+                    <form  action="/users/create" method="POST" enctype="multipart/form-data" id="form-users">
+                        {{ csrf_input() }}
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" name="username" value="{{ user.username }}" class="form-control">
+                            {{ error('username') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="name">Nom et Prenom(s)</label>
+                            <input type="text" name="name" value="{{ user.name }}" class="form-control">
+                            {{ error('name') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email" value="{{ user.email }}" class="form-control">
+                            {{ error('email') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="gender">Sexe</label>
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="Masculin">Masculin</option>
+                                <option value="Feminin">Feminin</option>
+                            </select>
+                            {{ error('sexe') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="phone">Numero de Portable</label>
+                            <input type="text" name="phone" value="{{ user.phone }}" class="form-control">
+                            {{ error('phone') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="work">Poste</label>
+                            <input type="text" name="work" value="{{ user.work }}" class="form-control">
+                            {{ error('work') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="role">Role</label>
+                            <select name="role" id="role" class="form-control">
+                                <option value="user">Membre</option>
+                                <option value="admin">Administrateur</option>
+                            </select>
+                            {{ error('role') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="password">Mot de Passe</label>
+                            <input type="text" name="password" value="{{ password_generated() }}" class="form-control">
+                            {{ error('password') }}
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <button class="btn btn-primary" type="reset">Annuler</button>
+                            <button type="submit" class="btn btn-success">Valider</button>
+                        </div>
+                    </form>
+                    {% for error in errors %}
+                    {{ error.username }}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

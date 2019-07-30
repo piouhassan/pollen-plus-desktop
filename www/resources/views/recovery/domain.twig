@@ -1,0 +1,43 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+    <div class="">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2 style="text-align: center;">Verification du nom de Domaine</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                   <div class="col-lg-12">
+                       <form  >
+                           <div class="col-md-11 col-sm-6 col-xs-12 form-group">
+                               <input type="text" name="whois"  id="whois" class="form-control" placeholder="Nom de domaine ou IP">
+                           </div>
+                           <div class="col-lg-1">
+                               <button type="submit" class="btn btn-primary" id="whoisSub">Verifier</button>
+                           </div>
+                       </form>
+
+                   </div>
+
+                 </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="col-lg-12">
+                        <h2 class="text-center">Resultat</h2>
+                        <hr>
+                        <pre>
+                            <div id="result" style="text-align: center;"></div>
+                        </pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

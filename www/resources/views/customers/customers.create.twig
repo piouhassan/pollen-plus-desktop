@@ -1,0 +1,66 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+
+    <div class="">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Ajouter un nouveau client</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left input_mask" action="/customers/create" method="POST" enctype="multipart/form-data">
+                        {{ csrf_input() }}
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">Structure</label>
+                            <select class="form-control" name="structure" id="">
+                                <option value="Particulier">Particulier</option>
+                                <option value="Compagnie">Compagnie</option>
+                            </select>
+                            {{ error('structure') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" name="name" class="form-control">
+                            {{ error('name') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">E-mail</label>
+                            <input type="email" name="email" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">Numero de telephone</label>
+                            <input type="number" name="phone" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">Ville</label>
+                            <input type="text" name="city" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">Pays</label>
+                            <input type="text" name="country" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">Addresse</label>
+                            <input type="text" name="address" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label for="firstname">Site internet</label>
+                            <input type="text" name="siteweb" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <button class="btn btn-primary" type="reset">Annuler</button>
+                                <button type="submit" class="btn btn-success">Valider</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

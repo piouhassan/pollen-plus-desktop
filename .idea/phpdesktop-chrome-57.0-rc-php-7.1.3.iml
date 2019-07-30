@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/www/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/www/packages" isTestSource="false" packagePrefix="Akuren\" />
+      <sourceFolder url="file://$MODULE_DIR$/www/config" isTestSource="false" packagePrefix="AkConfig\" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/apfelbox/php-file-download" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/cakephp/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/cakephp/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/cakephp/core" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/cakephp/database" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/cakephp/datasource" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/cakephp/utility" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/grafikart/psr15-csrf-middleware" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/illuminate/container" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/illuminate/contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/illuminate/database" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/illuminate/events" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/illuminate/support" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/intervention/image" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/league/container" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/michelf/php-markdown" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/middlewares/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/middlewares/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/http-server-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/http-server-middleware" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/robmorgan/phinx" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/sabberworm/php-css-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/skyzyx/mimetypes" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/spipu/html2pdf" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/config" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/tecnickcom/tcpdf" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/woohoolabs/harmony" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/zendframework/zend-diactoros" />
+      <excludeFolder url="file://$MODULE_DIR$/www/vendor/zendframework/zend-httphandlerrunner" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

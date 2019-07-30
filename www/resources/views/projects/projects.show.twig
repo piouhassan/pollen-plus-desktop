@@ -1,0 +1,94 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Projet: {{ project.name }}</h3>
+            </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Information</h2>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            <ul class="stats-overview">
+                                <li>
+                                    <span class="name"> Budget Estimer </span>
+                                    <span class="value text-success"> {{ project.budget }} FCFA</span>
+                                </li>
+                                <li>
+                                    <span class="name"> Total amount spent </span>
+                                    <span class="value text-success"> 2000 </span>
+                                </li>
+                                <li class="hidden-phone">
+                                    <span class="name"> Durée du Projets </span>
+                                    <span class="value text-success"> {{ project_duration(project.started_at, project.ended_at) }} Jours</span>
+                                </li>
+                            </ul>
+                            <br />
+
+                            <div id="mainb" style="height:350px;">
+
+                            </div>
+                        </div>
+
+                        <!-- start project-detail sidebar -->
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                            <section class="panel">
+
+                                <div class="x_title">
+                                    <h2>Description du Projet</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <h3 class="green"><i class="fa fa-paint-brush"></i> {{ project.name }}</h3>
+
+                                    <p>{{ project.description }}</p>
+                                    <br />
+
+                                    <div class="project_detail">
+                                        <p class="title">Nom du Client</p>
+                                        <p>{{ project.customer.name }}</p>
+
+                                        <p class="title">Les Membres du projet</p>
+                                        <ul class="list-unstyled project_files">
+                                            {% for user in project.user %}
+                                                <li>
+                                                    <a href="/users/profile/{{ user.id }}">{{ user.name }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% if project.start %}
+                                    <a href="/projects/update/pause-{{ project.id }}" class="btn btn-sm btn-warning">Pause</a>
+                                    {% else %}
+                                    <a href="/projects/update/start-{{ project.id }}" class="btn btn-sm btn-success">Demarer</a>
+                                    {% endif %}
+                                    <a href="#" class="btn btn-sm btn-danger">Abandonner</a>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- end project-detail sidebar -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+{% endblock %}

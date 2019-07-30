@@ -1,0 +1,128 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Utilisateurs: {{ user.username }}</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Informations</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    {% if user.avatar %}
+                                        <img src="/images/thumb_{{ user.avatar }}" alt=""  class="img-responsive img-circle avatar-view" style="width: 200px">
+                                    {% endif %}
+                                    {% if user.avatar == NULL %}
+                                        <img src="/images/default/avatar.jpg" alt=""  class="img-responsive img-circle avatar-view" style="width: 200px" >
+                                    {% endif  %}
+
+                                </div>
+                            </div>
+                            <h3>{{ user.name }}</h3>
+
+                            <ul class="list-unstyled user_data">
+                                <li>
+                                    <i class="fa fa-envelope-o user-profile-icon"></i> {{ user.email }}
+                                </li>
+                                <li>
+                                    <i class="fa fa-briefcase user-profile-icon"></i> {{ user.work }}
+                                </li>
+
+                            </ul>
+                            <br />
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projets</a>
+                                    </li>
+
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content" aria-labelledby="profile-tab">
+                                        <!-- start user projects -->
+                                        <table class="data table table-striped no-margin">
+                                            <thead>
+                                            <tr>
+                                                <th>Nom du Projet</th>
+                                                <th>Client</th>
+                                                <th>Status</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for project in user.project %}
+                                                <tr>
+                                                    <td>{{ project.name }}</td>
+                                                    <td>{{ project.customer.name }}</td>
+                                                    <td>{{ project.status }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                        <!-- end user projects -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if auth.id == user.id %}
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Modification</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form action="/users/profile/edit/{{ auth.id }}" enctype="multipart/form-data" method="post">
+                            {{ csrf_input() }}
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label for="username">Idendifient:</label>
+                                <input class="form-control" type="text" name="username" value="{{ auth.username }}">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label for="email">E-mail</label>
+                                <input type="text" class="form-control" name="email" value="{{ auth.email }}">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label for="email">Numéro de Téléphone</label>
+                                <input type="text" class="form-control" name="number" value="{{ auth.phone }}">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label for="email">Avatar</label>
+                                <input type="file" class="form-control" name="avatar">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <button class="btn btn-primary">Modifier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

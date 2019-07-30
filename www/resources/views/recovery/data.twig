@@ -1,0 +1,151 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Recovery et Suppression</h3>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2><i class="fa fa-bars"></i> Recuperation </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+
+                        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Clients</a>
+                                </li>
+                                <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projets</a>
+                                </li>
+                                <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Membres</a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                                    <table  id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Structure</th>
+                                            <th>E-mail</th>
+                                            <th>Numero</th>
+                                            <th>Site internet</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% for customer in customers %}
+                                            <tr>
+                                                <td>{{ customer.name }}</td>
+                                                <td>{{ customer.structure }}</td>
+                                                <td>{{ customer.email }}</td>
+                                                <td>{{ customer.phone }}</td>
+                                                <td>{{ customer.siteweb }}</td>
+                                                <td>
+                                                    <a href="/recovery/customer/recover/{{ customer.id }}" class="btn btn-xs btn-primary">recuperer</a>
+                                                    <a href="/recovery/customer/delete/{{ customer.id }}" class="btn btn-xs btn-danger">Supprimer</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                    <table  id="datatable-keytable" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom du Projet</th>
+                                            <th>Les Membres de l'equipe</th>
+                                            <th>Progression</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for project in projects %}
+                                            <tr>
+                                                <td>
+                                                    <a>{{ project.name }}</a>
+                                                    <br />
+                                                    <small>{{ project.created_at }}</small>
+                                                </td>
+                                                <td>
+                                                    {% for user in project.user %}
+                                                        <a href="/users/profile/{{ user.id }}" class="btn btn-primary btn-xs">{{ user.username }}</a>
+                                                    {% endfor %}
+                                                </td>
+                                                <td class="">
+
+                                                </td>
+                                                <td>
+                                                    {{ status(project.started_at, project.ended_at) }}
+                                                </td>
+                                                <td>
+                                                    <a href="/recovery/projet/recover/{{ project.id }}" class="btn btn-xs btn-primary">recuperer</a>
+                                                    <a href="/recovery/projet/delete/{{ project.id }}" class="btn btn-xs btn-danger">Supprimer</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                    <table  id="datatable" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom et Prenom(s)</th>
+                                            <th>E-mail</th>
+                                            <th>Travail</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for user in users %}
+                                            <tr>
+                                                <td>
+                                                    {{ user.name }}
+                                                </td>
+                                                <td>
+                                                    {{ user.email }}
+                                                </td>
+                                                <td>
+                                                    {{ user.work }}
+                                                </td>
+                                                <td>
+                                                    {% if user.id  != auth.id %}
+                                                        <a href="/recovery/user/recover/{{ user.id }}" class="btn btn-xs btn-primary">recuperer</a>
+                                                        <a href="/recovery/user/delete/{{ user.id }}" class="btn btn-xs btn-danger">Supprimer</a>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+{% endblock %}

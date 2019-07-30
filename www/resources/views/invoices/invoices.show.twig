@@ -1,0 +1,157 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+
+
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Invoice Manage</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <section class="content invoice">
+                            <!-- title row -->
+                            <div class="row">
+                                <div class="col-xs-12 invoice-header">
+                                    <h1>
+                                        <i class="fa fa-globe"></i> Facture
+                                        <small class="pull-right">Date: {{ now() }}</small>
+                                    </h1>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- info row -->
+                            <div class="row invoice-info">
+                                <div class="col-sm-4 invoice-col">
+                                    De
+                                    <address>
+                                        <strong>Pollen Plus</strong>
+                                        <br>Telephone: +228 92328454
+                                        <br>Email: pollenplus228@gmail.com
+                                    </address>
+                                </div>
+
+                                <div class="col-sm-4 invoice-col">
+                                    Pour
+                                    <address>
+                                        <strong>{{ invoice.customers.name }}</strong>
+                                        <br>{{ invoice.customers.address }}
+                                        <br>Phone: {{ invoice.customers.phone }}
+                                        <br>Email: {{ invoice.customers.email }}
+                                    </address>
+                                </div>
+
+                                <div class="col-sm-4 invoice-col">
+                                    <b>Facture: INV#{{ invoiceId }}</b>
+                                    <br>
+                                    <b>Date de Creation:</b>  {{ invoice.created_at  | date('d-M-Y')}}<br>
+                                    <b>Compte </b> {{ invoice.account }}
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-xs-12 table">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom du Produit</th>
+                                            <th>Description</th>
+                                            <th>Quantite</th>
+                                            <th>Prix Unitaire</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for product in invoice.products %}
+                                            <tr>
+                                                <td>{{ product.name }}</td>
+                                                <td>{{ product.description }}</td>
+                                                <td>{{ product.quantity }}</td>
+                                                <td>{{ product.price }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-xs-9">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <th style="width:80%">Subtotal:</th>
+                                                <td>{{ subtotal }} Frcs</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tax ({{ invoice.tax }} %)</th>
+                                                <td> {{ tax }} Frcs</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Total:</th>
+                                                <td><b style="color: #f42036">{{ total }}</b> Frcs TTC</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+
+                            <div class="row no-print">
+                                <div class="col-xs-12">
+                                    <a href="/invoices/template/list-{{ invoice.id }}" class="btn btn-primary pull-left" style="margin-right: 5px;"><i class="fa fa-download"></i> Telecharger PDF</a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Ajouter un Produt</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form action="/products/create/{{ invoice.id }}" method="post">
+                            {{ csrf_input() }}
+                            <div class="col-lg-4 col-sm-12 col-xs-12 form-group">
+                                <label for="name">Nom du Produt</label>
+                                <input type="text" name="name" class="form-control" id="name">
+                            </div>
+
+                            <div class="col-lg-4 col-sm-12 col-xs-12 form-group">
+                                <label for="quantity">Quantiter</label>
+                                <input type="number" name="quantity" class="form-control" id="quantity">
+                            </div>
+
+                            <div class="col-lg-4 col-sm-12 col-xs-12 form-group">
+                                <label for="price">Prix Unitaire</label>
+                                <input type="text" name="price" class="form-control" id="price">
+                            </div>
+
+                            <div class="col-lg-12 col-sm-12 col-xs-12 form-group">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" class="form-control" rows="3" maxlength="180" minlength="10"></textarea>
+                            </div>
+
+                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                                <button type="submit" class="btn btn-success">Ajouter un Produt</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

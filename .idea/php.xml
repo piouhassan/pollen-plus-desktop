@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/www/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/www/vendor/cakephp/core" />
+      <path value="$PROJECT_DIR$/www/vendor/cakephp/cache" />
+      <path value="$PROJECT_DIR$/www/vendor/cakephp/database" />
+      <path value="$PROJECT_DIR$/www/vendor/cakephp/datasource" />
+      <path value="$PROJECT_DIR$/www/vendor/cakephp/utility" />
+      <path value="$PROJECT_DIR$/www/vendor/cakephp/collection" />
+      <path value="$PROJECT_DIR$/www/vendor/apfelbox/php-file-download" />
+      <path value="$PROJECT_DIR$/www/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/www/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/www/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/www/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/www/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/www/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/www/vendor/league/container" />
+      <path value="$PROJECT_DIR$/www/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/www/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/www/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/www/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/www/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/www/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/www/vendor/spipu/html2pdf" />
+      <path value="$PROJECT_DIR$/www/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/www/vendor/grafikart/psr15-csrf-middleware" />
+      <path value="$PROJECT_DIR$/www/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/www/vendor/michelf/php-markdown" />
+      <path value="$PROJECT_DIR$/www/vendor/robmorgan/phinx" />
+      <path value="$PROJECT_DIR$/www/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/www/vendor/zendframework/zend-httphandlerrunner" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/www/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/www/vendor/tecnickcom/tcpdf" />
+      <path value="$PROJECT_DIR$/www/vendor/woohoolabs/harmony" />
+      <path value="$PROJECT_DIR$/www/vendor/composer" />
+      <path value="$PROJECT_DIR$/www/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/www/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/http-server-middleware" />
+      <path value="$PROJECT_DIR$/www/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/http-server-handler" />
+      <path value="$PROJECT_DIR$/www/vendor/middlewares/utils" />
+      <path value="$PROJECT_DIR$/www/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/www/vendor/middlewares/whoops" />
+      <path value="$PROJECT_DIR$/www/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/www/vendor/skyzyx/mimetypes" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+</project>

@@ -1,0 +1,62 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block content %}
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Notification</h3>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                           <h4 style="text-align: center;">Via API SMS</h4>
+                        <hr>
+                        <form action="/notification/send" method="post">
+                            {{ csrf_input() }}
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                <label for="name">Recepteur</label>
+                                <input type="text" name="destinataire" class="form-control" placeholder="Ex : 22892328454">
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                <label for="name">Recepteur</label>
+                                <select name="destinataire1" class="form-control">
+                                    <option disabled selected>Choisir un numero deja existant</option>
+                                    {% for customer in customers %}
+                                        <option value="{{ customer.phone }}">{{ customer.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                <label for="name">Emetteur</label>
+                                <input type="text" name="emitter" class="form-control" placeholder="Emetteur" required>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                <label for="name">Lien de Retour</label>
+                                <input type="text" name="url" class="form-control" placeholder="www.lienderetour.lien">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                <label for="name">Message</label>
+                                <textarea name="message" id="" cols="30" rows="4" class="form-control" placeholder="taper ici votre message" required maxlength="160" minlength="10"></textarea>
+                            </div>
+
+                            <div class="col-lg-4 col-sm-4 col-xs-12 form-group">
+                                <button class="btn btn-primary btn-block">Envoyer <i class="fa fa-send-o pull-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+{% endblock %}
